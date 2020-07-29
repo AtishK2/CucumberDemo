@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,7 +28,7 @@ public class GoogleHomepageTest extends TestBase {
 
 	@When("I open Google homepage")
 	public void i_open_google_homepage() {
-		openUrl("https://www.google.co.in");
+		openUrl("https://www.google.com/");
 		googleHomePage = new GoogleHomePage(driver);
 	}
 
@@ -35,12 +37,12 @@ public class GoogleHomepageTest extends TestBase {
 		Assert.assertTrue(isElementDisplayed(googleHomePage.txtSearchbox));
 	}
 
-	@Then("Search button is displayed")
+	@And("Search button is displayed")
 	public void search_button_is_displayed() {
 		Assert.assertTrue(isElementDisplayed(googleHomePage.btnSearch));
 	}
 
-	@Then("button with text Im Feeling Lucky is displayed")
+	@And("button with text Im Feeling Lucky is displayed")
 	public void button_with_text_im_feeling_lucky_is_displayed() {
 		Assert.assertTrue(isElementDisplayed(googleHomePage.btnFeelingLucky));
 		driver.close();
@@ -49,7 +51,6 @@ public class GoogleHomepageTest extends TestBase {
 	@When("enter selenium best tutorial")
 	public void enter_selenium_best_tutorial() {
 		enterText(googleHomePage.txtSearchbox, searchQuery);
-		System.out.println("text entered");
 	}
 
 	@Then("I get a list of search results related to selenium")
@@ -62,7 +63,12 @@ public class GoogleHomepageTest extends TestBase {
 
 	@And("page title contains search query text")
 	public void page_title_contains_search_query_text() {
-		Assert.assertTrue(driver.getTitle().contains("selenium best tutorial"));
+		Assert.assertTrue(driver.getTitle().contains(searchQuery));
+		driver.close();
+	}
+	
+	@AfterClass
+	public void tearDown() {
 		driver.close();
 	}
 }
