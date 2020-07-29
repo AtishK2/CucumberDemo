@@ -1,24 +1,23 @@
 package stepdefinitions;
 
-import static helpers.WebHelper.*;
-
-import java.util.List;
-
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import common.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import helpers.WebHelper;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pageobjects.GoogleHomePage;
+
+import java.util.List;
+
+import static helpers.WebHelper.*;
 
 public class GoogleHomepageTest extends TestBase {
 	private GoogleHomePage googleHomePage;
 	private String searchQuery = "best selenium tutorial";
+
 
 	@Given("I launch Google Chrome browser")
 	public void i_launch_google_chrome_browser() {
@@ -28,11 +27,11 @@ public class GoogleHomepageTest extends TestBase {
 	@When("I open Google homepage")
 	public void i_open_google_homepage() {
 		openUrl("https://www.google.co.in");
+		googleHomePage = new GoogleHomePage(driver);
 	}
 
 	@Then("I verify that search text box is displayed")
 	public void i_verify_that_search_text_box_is_displayed() {
-		googleHomePage = new GoogleHomePage(driver);
 		Assert.assertTrue(isElementDisplayed(googleHomePage.txtSearchbox));
 	}
 
@@ -50,10 +49,12 @@ public class GoogleHomepageTest extends TestBase {
 	@When("enter selenium best tutorial")
 	public void enter_selenium_best_tutorial() {
 		enterText(googleHomePage.txtSearchbox, searchQuery);
+		System.out.println("text entered");
 	}
 
 	@Then("I get a list of search results related to selenium")
 	public void i_get_a_list_of_search_results() {
+		System.out.println("click on Element");
 		clickOnElement(googleHomePage.btnSearch);
 		List<WebElement> searchResultsList = driver.findElements(By.xpath("//h3[@class='LC20lb DKV0Md']"));
 		Assert.assertTrue(searchResultsList.size() > 1);

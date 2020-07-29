@@ -1,10 +1,9 @@
 package helpers;
 
-import java.util.Set;
-
+import common.TestBase;
 import org.openqa.selenium.WebElement;
 
-import common.TestBase;
+import java.util.Set;
 
 public class WebHelper extends TestBase {
 	public static void openUrl(String urlName) {
@@ -18,6 +17,7 @@ public class WebHelper extends TestBase {
 	public static void enterText(WebElement element, String textToEnter) {
 		element.clear();
 		element.sendKeys(textToEnter);
+		System.out.println("updated successfully");
 	}
 	
 	public static void clickOnElement(WebElement element) {

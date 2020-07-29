@@ -1,14 +1,12 @@
 package pageobjects;
 
-import java.util.List;
-
+import common.TestBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
-import common.TestBase;
+import java.util.List;
 
 public class GoogleHomePage extends TestBase{
 
@@ -27,9 +25,6 @@ public class GoogleHomePage extends TestBase{
 	public GoogleHomePage() {}
 	
 	public GoogleHomePage(WebDriver driver) {
-		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 }

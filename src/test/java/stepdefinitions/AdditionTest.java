@@ -16,15 +16,6 @@ public class AdditionTest {
         num2 = number2;
     }
 
-    @Given("If I have two numbers")
-    public void if_i_have_two_numbers(DataTable numbers) {
-        List<List<String>> dataValue = numbers.raw();
-        String no1 = String.valueOf(dataValue.get(0).get(0));
-        String no2 = String.valueOf(dataValue.get(0).get(1));
-        num1 = Integer.valueOf(no1);
-        num2 = Integer.valueOf(no2);
-    }
-
     @When("I add both the numbers")
     public void i_add_both_the_numbers() {
         sum = num1 + num2;
@@ -35,4 +26,12 @@ public class AdditionTest {
         System.out.println("Sum of two numbers is = " + sum);
     }
 
+    @Given("If I have two numbers")
+    public void if_i_have_two_numbers(DataTable numbers) {
+        List<List<String>> dataValue = numbers.raw();
+        String no1 = String.valueOf(dataValue.get(0).get(0));
+        String no2 = String.valueOf(dataValue.get(0).get(1));
+        num1 = Integer.valueOf(no1);
+        num2 = Integer.valueOf(no2);
+    }
 }
