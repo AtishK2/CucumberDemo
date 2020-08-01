@@ -1,19 +1,9 @@
 package helpers;
 
 import common.TestBase;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 public class WebHelper extends TestBase {
 	public static void openUrl(String urlName) {
@@ -41,14 +31,14 @@ public class WebHelper extends TestBase {
 		return driver.getWindowHandle();
 	}
 	
-	public static boolean isElementDisplayed(WebElement element) {
+	/*public static boolean isElementDisplayed(WebElement element) {
 		try{
 			waitFluentlyForElement(element);
 		}catch(Exception e) {
 			System.out.println("Element "+element+" failed due to "+e.getMessage());
 		}
 		return element.isDisplayed();
-	}
+	}*/
 	
 	public static boolean isElementEnabled(WebElement element) {
 		return element.isEnabled();
@@ -58,7 +48,7 @@ public class WebHelper extends TestBase {
 		return element.isSelected();
 	}
 	
-	public static void waitFluentlyForElement(WebElement element) {
+	/*public static void waitFluentlyForElement(WebElement element) {
 		Wait wait=new FluentWait<WebDriver>(driver)							
 				.withTimeout(Duration.ofSeconds(30)) 			
 				.pollingEvery(Duration.ofSeconds(30));
@@ -68,5 +58,5 @@ public class WebHelper extends TestBase {
 		        return element;    
 		    }
 		});
-	}
+	}*/
 }

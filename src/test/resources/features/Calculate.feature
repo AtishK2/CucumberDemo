@@ -1,5 +1,5 @@
-Feature: Calculate result of operation on numbers
-  I should be able to calculate the given numbers
+#Feature: Calculate result of operation on numbers
+#  I should be able to calculate the given numbers
 
 #  Scenario: Calculate sum of two integer numbers using data tables
 #    Given If I have two numbers
