@@ -4,3 +4,4 @@
 /test-output/index.html
 *.js
 *.css
+/target/

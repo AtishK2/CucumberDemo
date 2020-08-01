@@ -8,11 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/",
         glue = "stepdefinitions",
-        format = {"pretty", "html:test-output"},
+        format = {"pretty", "html:test-output", "json:json-output/","junit:junit/junit.xml"},
         dryRun = false,
         strict = true,
         monochrome = true
 )
-public class GoogleHomepage {
+public class ApplicationRunner {
 
 }
